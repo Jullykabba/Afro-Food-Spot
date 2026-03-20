@@ -1,0 +1,10 @@
+packages:
+  "framer-motion": "For smooth scroll reveals and UI animations"
+  "zustand": "For managing the shopping cart state across components"
+  "clsx": "For conditional tailwind class merging"
+  "tailwind-merge": "For conditional tailwind class merging"
+
+notes:
+  - This is a static single-page application using hash-based navigation for sections.
+  - Cart state is managed purely on the client side using Zustand.
+  - Checkout integrates directly with WhatsApp via deep linking.

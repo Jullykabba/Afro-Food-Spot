@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: 'Poppins', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+
+  /* Warm African Food Color Palette */
+  --color-background: hsl(30 50% 98%);
+  --color-foreground: hsl(20 20% 15%);
+  
+  --color-primary: hsl(24 95% 53%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  
+  --color-secondary: hsl(3 78% 50%);
+  --color-secondary-foreground: hsl(0 0% 100%);
+  
+  --color-muted: hsl(30 20% 94%);
+  --color-muted-foreground: hsl(20 10% 40%);
+  
+  --color-accent: hsl(45 93% 47%);
+  --color-accent-foreground: hsl(20 20% 15%);
+  
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  
+  --color-border: hsl(30 15% 90%);
+  --color-input: hsl(30 15% 90%);
+  --color-ring: hsl(24 95% 53%);
+  
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(20 20% 15%);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+:root {
+  --background: 30 50% 98%;
+  --foreground: 20 20% 15%;
+  --primary: 24 95% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 3 78% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 30 20% 94%;
+  --muted-foreground: 20 10% 40%;
+  --accent: 45 93% 47%;
+  --accent-foreground: 20 20% 15%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 30 15% 90%;
+  --input: 30 15% 90%;
+  --ring: 24 95% 53%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 20% 15%;
+  --radius: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed header */
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* Hide scrollbar for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
