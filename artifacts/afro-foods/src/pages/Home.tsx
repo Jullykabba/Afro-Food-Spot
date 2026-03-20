@@ -9,6 +9,7 @@ import { Menu } from "@/components/sections/Menu";
 import { Services } from "@/components/sections/Services";
 import { Reviews } from "@/components/sections/Reviews";
 import { Contact } from "@/components/sections/Contact";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       <Navbar />
       <CartDrawer />
       
-      <main className="flex-grow">
+      <main className="flex-grow pb-20 md:pb-0">
         <Hero />
         <About />
         <Menu />
@@ -28,6 +29,7 @@ export default function Home() {
       <Footer />
       <WhatsAppFAB />
       <BackToTop />
+      <MobileBottomNav />
     </div>
   );
 }

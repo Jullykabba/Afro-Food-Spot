@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ShoppingBag, MapPin } from "lucide-react";
+import { ArrowRight, ShoppingBag, MapPin, Star, Clock, Bike, ChevronDown } from "lucide-react";
 import { useCart } from "@/store/use-cart";
 
 export function Hero() {
@@ -85,6 +85,45 @@ export function Hero() {
       
       {/* Decorative elements */}
       <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
+
+      {/* Floating Stats Strip */}
+      <div className="absolute bottom-16 sm:bottom-12 inset-x-0 z-20 flex justify-center px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap justify-center gap-3 sm:gap-6"
+        >
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full flex items-center gap-2 text-white shadow-xl">
+            <Star size={16} className="text-primary fill-primary" />
+            <span className="text-sm font-medium">4.2/5 Rating</span>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full flex items-center gap-2 text-white shadow-xl">
+            <Clock size={16} className="text-primary" />
+            <span className="text-sm font-medium">30-45 min delivery</span>
+          </div>
+          <div className="hidden sm:flex bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full items-center gap-2 text-white shadow-xl">
+            <Bike size={16} className="text-primary" />
+            <span className="text-sm font-medium">Free delivery in Minna</span>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="absolute bottom-4 inset-x-0 z-20 flex justify-center"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        >
+          <ChevronDown className="text-white/50" size={32} />
+        </motion.div>
+      </motion.div>
+
     </section>
   );
 }

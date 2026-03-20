@@ -3,18 +3,27 @@ import { Star, Quote } from "lucide-react";
 
 const REVIEWS = [
   {
-    name: "Customer Review",
-    text: "Very nice food and good ambiance.",
+    name: "Amina K.",
+    initials: "AK",
+    color: "bg-purple-500",
+    date: "2 weeks ago",
+    text: "Very nice food and good ambiance. The chicken was perfectly grilled.",
     rating: 5,
   },
   {
-    name: "Customer Review",
-    text: "Amazing place. Delicious food and kind workers.",
+    name: "Chidi M.",
+    initials: "CM",
+    color: "bg-blue-500",
+    date: "1 month ago",
+    text: "Amazing place. Delicious food and kind workers. Will definitely order again!",
     rating: 5,
   },
   {
-    name: "Customer Review",
-    text: "Was excellent. They sell ice creams, meat and food.",
+    name: "Fatima B.",
+    initials: "FB",
+    color: "bg-green-500",
+    date: "3 weeks ago",
+    text: "Was excellent. They sell ice creams, meat and food. Their delivery is very fast.",
     rating: 5,
   },
 ];
@@ -63,17 +72,24 @@ export function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors"
+              whileHover={{ scale: 1.02 }}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:border-primary/50 transition-colors"
             >
               <Quote className="text-primary mb-6 opacity-50" size={40} />
-              <p className="text-lg text-gray-200 mb-6 italic leading-relaxed min-h-[80px]">
+              <p className="text-lg text-gray-200 mb-8 italic leading-relaxed min-h-[80px]">
                 "{review.text}"
               </p>
-              <div className="flex items-center justify-between border-t border-white/10 pt-4">
-                <span className="font-bold text-white">{review.name}</span>
-                <div className="flex text-accent">
+              <div className="flex items-center gap-4 border-t border-white/10 pt-6">
+                <div className={`w-12 h-12 rounded-full ${review.color} flex items-center justify-center text-white font-bold text-lg shrink-0`}>
+                  {review.initials}
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-white leading-none mb-1">{review.name}</h4>
+                  <p className="text-gray-400 text-sm">{review.date}</p>
+                </div>
+                <div className="flex text-accent shrink-0">
                   {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-accent" />
+                    <Star key={i} size={14} className="fill-accent" />
                   ))}
                 </div>
               </div>
