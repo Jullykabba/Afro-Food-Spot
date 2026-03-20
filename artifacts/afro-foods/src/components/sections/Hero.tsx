@@ -1,15 +1,22 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight, ShoppingBag, MapPin } from "lucide-react";
 import { useCart } from "@/store/use-cart";
 
 export function Hero() {
   const { openCart } = useCart();
 
+  const handleStartOrder = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const menuSection = document.getElementById("menu");
+    if (menuSection) {
+      menuSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-foreground">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        {/* landing page hero delicious grilled chicken african food warm colors */}
         <img
           src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&q=80&w=2000"
           alt="Delicious grilled chicken"
@@ -25,10 +32,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary-foreground backdrop-blur-sm mb-6"
+            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-black/40 border border-white/10 text-white backdrop-blur-md mb-6 shadow-xl"
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium tracking-wide text-white">Top Rated in Minna</span>
+            <MapPin size={16} className="text-primary" />
+            <span className="text-sm font-semibold tracking-wide">Order in Minna</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
           </motion.div>
 
           <motion.h1
@@ -58,16 +66,17 @@ export function Hero() {
           >
             <a
               href="#menu"
-              className="px-8 py-4 rounded-xl font-bold bg-primary text-white shadow-[0_0_40px_-10px_rgba(249,115,22,0.8)] hover:shadow-[0_0_60px_-15px_rgba(249,115,22,1)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+              onClick={handleStartOrder}
+              className="px-8 py-4 rounded-xl font-bold bg-primary text-white shadow-[0_0_40px_-10px_rgba(249,115,22,0.8)] hover:shadow-[0_0_60px_-15px_rgba(249,115,22,1)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg"
             >
-              Order Now
-              <ShoppingBag size={20} />
+              Start Order
+              <ShoppingBag size={22} />
             </a>
             <a
               href="#about"
               className="px-8 py-4 rounded-xl font-bold bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/20 transition-all flex items-center justify-center gap-2 group"
             >
-              Explore Menu
+              Explore More
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>

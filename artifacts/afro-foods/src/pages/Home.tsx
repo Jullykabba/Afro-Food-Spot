@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFAB } from "@/components/layout/WhatsAppFAB";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -26,6 +27,7 @@ export default function Home() {
 
       <Footer />
       <WhatsAppFAB />
+      <BackToTop />
     </div>
   );
 }

@@ -1,0 +1,389 @@
+You’re thinking like a real product builder now 🔥 — this is exactly how to make it look legit + usable in Nigeria 🇳🇬
+
+Here’s your FINAL UPGRADED REPLIT PROMPT (with Nigerian payments + Jumia Food–style UI).
+Paste this into Replit AI 👇
+
+
+---
+
+🔥 ULTIMATE REPLIT PROMPT – Afro Foods (Jumia Food Style + Nigerian Payments)
+
+Build a premium, modern food ordering website for Afro Foods Restaurant that looks and feels like a real food delivery platform similar to Jumia Food.
+
+
+---
+
+📍 Business Info (Use exactly):
+
+Name: Afro Foods Restaurant
+
+Type: Chicken & African Cuisine
+
+Address: Sir Kashim Ibrahim Rd, Minna, Niger State, Nigeria
+
+Phone / WhatsApp: 0912 634 8476
+
+Services: Dine-in, Takeaway, Delivery
+
+Rating: 4.2/5
+
+
+
+---
+
+🎯 CORE GOAL:
+
+The website should feel like a real food ordering app, not just a static site.
+
+
+---
+
+📁 Structure:
+
+index.html
+
+style.css
+
+script.js
+
+
+
+---
+
+🌐 UI STYLE (VERY IMPORTANT)
+
+Design should look like:
+
+Food delivery apps (cards, grids, clean spacing)
+
+Modern, premium UI
+
+Mobile-first design
+
+
+Use:
+
+Soft shadows
+
+Rounded corners
+
+Smooth animations
+
+Sticky navigation
+
+
+
+---
+
+🧭 SECTIONS:
+
+✅ 1. App-Style Navbar
+
+Logo (Afro Foods)
+
+Search bar (like food apps)
+
+Cart icon 🛒 with live count
+
+
+
+---
+
+✅ 2. Hero Section
+
+Big food image banner
+
+Text:
+
+“Order Delicious Food in Minna”
+
+
+CTA:
+
+“Start Order”
+
+
+
+
+---
+
+✅ 3. Category Filter (LIKE JUMIA FOOD)
+
+Horizontal scroll buttons:
+
+🍗 Chicken
+
+🍛 Rice
+
+🍲 Local Meals
+
+🍦 Ice Cream
+
+🥤 Drinks
+
+
+Clicking filters menu items dynamically (JavaScript)
+
+
+---
+
+✅ 4. Menu (APP STYLE GRID)
+
+Each food card must include:
+
+Food image
+
+Name
+
+Price (₦)
+
+Add to Cart button
+
+
+
+---
+
+✅ 5. SMART CART SYSTEM 🛒
+
+Slide-in cart panel (right side)
+
+Features:
+
+Add/remove items
+
+Increase/decrease quantity
+
+Auto total calculation
+
+
+Checkout button
+
+
+
+---
+
+💳 6. NIGERIAN PAYMENT SYSTEM (VERY IMPORTANT)
+
+Show multiple payment options UI:
+
+💰 Pay on Delivery
+
+Cash
+
+POS
+
+
+🏦 Bank Transfer
+
+Show:
+
+Bank Name (e.g., Opay, PalmPay, GTBank)
+
+Account Number (placeholder)
+
+
+Button: “I have paid”
+
+
+
+---
+
+💳 Online Payment (REALISTIC UI)
+
+Include:
+
+Paystack
+
+Flutterwave
+
+
+Buttons:
+
+“Pay with Paystack”
+
+“Pay with Flutterwave”
+
+
+(UI only, no backend needed)
+
+
+---
+
+📲 Mobile Wallets (Nigeria)
+
+Opay
+
+PalmPay
+
+Kuda
+
+
+
+---
+
+📦 7. ORDER FLOW (IMPORTANT)
+
+When user clicks Checkout:
+
+Show form:
+
+Name
+
+Phone
+
+Delivery Address
+
+
+Then:
+
+
+👉 Send order to WhatsApp:
+
+Number: 09126348476
+
+Message should include:
+
+Items
+
+Quantity
+
+Total price
+
+Address
+
+
+
+
+---
+
+⭐ 8. REVIEWS SECTION
+
+Show:
+
+Rating: 4.2/5
+
+
+Include real reviews:
+
+“Very nice food and good ambiance”
+
+“Amazing place. Delicious food and kind workers”
+
+“Was excellent. They sell ice creams, meat and food”
+
+
+
+---
+
+📍 9. CONTACT SECTION
+
+Address
+
+Click-to-call phone
+
+Google Map embed
+
+
+
+---
+
+📲 10. FLOATING FEATURES
+
+WhatsApp chat button
+
+Back-to-top button
+
+
+
+---
+
+🎨 DESIGN COLORS:
+
+Primary: Orange
+
+Secondary: Red
+
+Background: Light gray / white
+
+
+
+---
+
+⚙️ FUNCTIONALITY:
+
+Smooth scrolling
+
+Responsive design
+
+Cart updates in real time
+
+Category filtering
+
+
+
+---
+
+🧠 SEO:
+
+Title: Afro Foods Restaurant – Order Food in Minna
+
+Keywords:
+
+food delivery Minna
+
+chicken restaurant Nigeria
+
+order food online Niger State
+
+
+
+
+---
+
+🚀 OUTPUT:
+
+Clean, structured code
+
+No errors
+
+Looks like a real food ordering platform
+
+
+
+---
+
+🔥 AFTER IT GENERATES (DO THIS)
+
+Paste:
+
+👉
+“Improve animations, add icons, make UI smoother, and optimize for mobile to look exactly like a real food delivery app.”
+
+
+---
+
+💰 REAL TALK (IMPORTANT)
+
+With this level:
+
+You can now:
+
+Build for restaurants in Minna
+
+Sell for ₦80k – ₦200k
+
+Add payment later and charge more
+
+
+
+---
+
+🚀 NEXT LEVEL OPTIONS
+
+Tell me:
+
+👉 “Add real Paystack integration”
+👉 “Turn it into full delivery marketplace (multiple restaurants)”
+👉 “Convert to React app (pro level)”
+
+I’ll upgrade you again 💯
