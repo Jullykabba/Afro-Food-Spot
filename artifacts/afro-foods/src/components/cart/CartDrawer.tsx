@@ -30,7 +30,10 @@ export function CartDrawer() {
     }, 300);
   };
 
-  const isDetailsValid = name.trim() !== "" && phone.trim() !== "" && address.trim() !== "";
+  const isDetailsValid =
+    name.trim() !== "" &&
+    phone.trim() !== "" &&
+    (serviceType !== "Delivery" || address.trim() !== "");
 
   const handleCopyAccount = () => {
     navigator.clipboard.writeText("9126348476");
