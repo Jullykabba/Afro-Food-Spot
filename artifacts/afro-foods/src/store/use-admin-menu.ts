@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
 export type AdminCategory = "Appetizer" | "Main Course" | "Drink";
 
@@ -15,72 +14,101 @@ export interface AdminDish {
 
 interface AdminMenuStore {
   dishes: AdminDish[];
-  addDish: (dish: Omit<AdminDish, "id" | "createdAt">) => void;
+  addDish:    (dish: Omit<AdminDish, "id" | "createdAt">) => void;
   updateDish: (id: string, dish: Omit<AdminDish, "id" | "createdAt">) => void;
   deleteDish: (id: string) => void;
 }
 
-const SEED_DISHES: AdminDish[] = [
+const STORAGE_KEY = "afro-foods-admin-dishes";
+
+const SEED: AdminDish[] = [
   {
-    id: "admin-seed-1",
+    id: "seed-1",
     name: "Grilled Chicken (Half)",
     description: "Tender half chicken marinated in our signature Afro spice blend and slow-grilled to perfection.",
     price: 2500,
     category: "Main Course",
     imageUrl: "",
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 3,
+    createdAt: 1,
   },
   {
-    id: "admin-seed-2",
+    id: "seed-2",
     name: "Jollof Rice + Chicken",
     description: "Classic smoky jollof rice cooked with tomatoes and spices, served with a piece of fried chicken.",
     price: 2500,
     category: "Main Course",
     imageUrl: "",
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 2,
+    createdAt: 2,
   },
   {
-    id: "admin-seed-3",
+    id: "seed-3",
     name: "Meat Pie",
     description: "Freshly baked flaky pastry filled with minced beef, potatoes, and carrots.",
     price: 500,
     category: "Appetizer",
     imageUrl: "",
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 1,
+    createdAt: 3,
   },
   {
-    id: "admin-seed-4",
+    id: "seed-4",
     name: "Coca Cola",
     description: "Ice-cold 50cl bottle of Coca-Cola.",
     price: 300,
     category: "Drink",
     imageUrl: "",
-    createdAt: Date.now() - 1000 * 60 * 60 * 12,
+    createdAt: 4,
   },
 ];
 
-export const useAdminMenu = create<AdminMenuStore>()(
-  persist(
-    (set) => ({
-      dishes: SEED_DISHES,
-      addDish: (dish) =>
-        set((state) => ({
-          dishes: [
-            ...state.dishes,
-            { ...dish, id: `admin-${Date.now()}`, createdAt: Date.now() },
-          ],
-        })),
-      updateDish: (id, dish) =>
-        set((state) => ({
-          dishes: state.dishes.map((d) =>
-            d.id === id ? { ...d, ...dish } : d
-          ),
-        })),
-      deleteDish: (id) =>
-        set((state) => ({
-          dishes: state.dishes.filter((d) => d.id !== id),
-        })),
+function load(): AdminDish[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch {
+    // ignore
+  }
+  return SEED;
+}
+
+function save(dishes: AdminDish[]) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dishes));
+  } catch {
+    // ignore
+  }
+}
+
+export const useAdminMenu = create<AdminMenuStore>((set) => ({
+  dishes: load(),
+
+  addDish: (dish) =>
+    set((state) => {
+      const next: AdminDish = {
+        ...dish,
+        id: `dish-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        createdAt: Date.now(),
+      };
+      const updated = [...state.dishes, next];
+      save(updated);
+      return { dishes: updated };
     }),
-    { name: "afro-foods-admin-menu" }
-  )
-);
+
+  updateDish: (id, dish) =>
+    set((state) => {
+      const updated = state.dishes.map((d) =>
+        d.id === id ? { ...d, ...dish } : d
+      );
+      save(updated);
+      return { dishes: updated };
+    }),
+
+  deleteDish: (id) =>
+    set((state) => {
+      const updated = state.dishes.filter((d) => d.id !== id);
+      save(updated);
+      return { dishes: updated };
+    }),
+}));
